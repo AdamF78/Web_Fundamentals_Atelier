@@ -59,7 +59,9 @@ Vous avez maintenant **votre propre dépôt**, indépendant de celui de l'enseig
 **Objectif :** obtenir un serveur gratuit, accessible depuis Internet
 **Difficulté :** facile (~10 minutes)
 
-1. Rendez-vous sur **https://www.pythonanywhere.com** et créez un compte gratuit (**Pricing & signup** → **Create a Beginner account**).
+> ⚠️ **Important : laissez le site PythonAnywhere en anglais !** Si votre navigateur vous propose de traduire la page en français, **refusez** (ou désactivez la traduction automatique pour ce site). Les consignes ci-dessous utilisent les noms anglais des boutons et des menus (*Web*, *Add a new web app*, *Account*…) : une fois traduits, vous ne les retrouveriez plus. La traduction peut aussi modifier les chemins de fichiers et les noms d'utilisateur affichés, et vous recopieriez alors de mauvaises valeurs dans vos secrets.
+
+1. Rendez-vous sur **<a href="https://www.pythonanywhere.com" target="_blank">https://www.pythonanywhere.com</a>** (astuce : **Ctrl + clic**, ou **Cmd + clic** sur Mac, pour l'ouvrir dans un nouvel onglet et garder ces consignes sous les yeux) et créez un compte gratuit (**Pricing & signup** → **Create a Beginner account**).
    👉 Notez bien votre **nom d'utilisateur** (*username*), vous en aurez besoin.
 2. Une fois connecté, ouvrez l'onglet **Web** (en haut à droite) puis cliquez sur **Add a new web app**.
 3. Suivez l'assistant :
@@ -91,8 +93,6 @@ Dans votre dépôt GitHub : **Settings → Secrets and variables → Actions →
 | `PA_TOKEN` | votre jeton d'API (séquence 2, étape 5) | `3f9a...` |
 | `PA_TARGET_DIR` | le dossier de votre site (onglet **Web** → *Source code*) | `/home/alice42/mysite` |
 | `PA_WEBAPP_DOMAIN` | l'adresse de votre site, **sans** `https://` | `alice42.pythonanywhere.com` |
-
-> 🇪🇺 Si votre compte PythonAnywhere a été créé sur le site européen (`eu.pythonanywhere.com`), ajoutez un 5ᵉ secret : `PA_HOST` = `eu.pythonanywhere.com`.
 
 **Lancer le premier déploiement :** onglet **Actions** de votre dépôt → cliquez sur **Deploy to PythonAnywhere** dans la liste de gauche → bouton **Run workflow** → **Run workflow**.
 
