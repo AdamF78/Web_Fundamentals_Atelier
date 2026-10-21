@@ -94,6 +94,8 @@ Dans votre dépôt GitHub : **Settings → Secrets and variables → Actions →
 | `PA_TARGET_DIR` | le dossier de votre site (onglet **Web** → *Source code*) | `/home/alice42/mysite` |
 | `PA_WEBAPP_DOMAIN` | l'adresse de votre site, **sans** `https://` | `alice42.pythonanywhere.com` |
 
+> 🇪🇺 Si votre compte PythonAnywhere a été créé sur le site européen (`eu.pythonanywhere.com`), ajoutez un 5ᵉ secret : `PA_HOST` = `eu.pythonanywhere.com`.
+
 **Lancer le premier déploiement :** onglet **Actions** de votre dépôt → cliquez sur **Deploy to PythonAnywhere** dans la liste de gauche → bouton **Run workflow** → **Run workflow**.
 
 ✅ **C'est réussi si** la pastille devient verte et que votre site affiche maintenant *« Bonjour le monde ! (Flask on PythonAnywhere) »*.
