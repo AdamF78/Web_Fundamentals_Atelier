@@ -1,90 +1,168 @@
-------------------------------------------------------------------------------------------------------
-🎯PROJET ARCHITECTURE SI
-------------------------------------------------------------------------------------------------------
-Pitch de l'atelier.  
+# 🌍 Atelier « Découvrir le Web »
 
-**Architecture cible**  
+Bienvenue ! 👋
 
-![Screenshot Actions](Architecture_cible.png)  
+Chaque jour, vous tapez des adresses dans un navigateur et des pages s'affichent. **Mais que se passe-t-il vraiment entre le moment où vous appuyez sur Entrée et celui où la page apparaît ?**
 
--------------------------------------------------------------------------------------------------------
-🧩 Séquence 1 : GitHUB
--------------------------------------------------------------------------------------------------------
-Objectif : Création d'un Repository GitHUB pour travailler avec son projet  
-Difficulté : Très facile (~10 minutes)
--------------------------------------------------------------------------------------------------------
-**Faites un Fork de ce projet**. Si besoin, voici une vidéo d'accompagnement pour vous aider à "Forker" un Repository Github : [Forker ce projet](https://youtu.be/p33-7XQ29zQ)  
+Dans cet atelier, vous allez **mettre en ligne votre propre petit site Web** puis le faire évoluer, pas à pas, pour découvrir comment fonctionne le Web : les URL, le HTML, le CSS, les requêtes HTTP, les formulaires, les codes d'erreur, les API…
 
----------------------------------------------------
-🧩 Séquence 2 : Création d'un site chez Pythonanywhere
----------------------------------------------------
-Objectif : Créer un hébergement sur Pythonanywhere  
-Difficulté : Faible (~10 minutes)
----------------------------------------------------
+> 🎯 **L'objectif n'est pas de construire une application**, mais de **comprendre** ce qui se passe derrière une page Web. Chaque exercice est court (10 à 20 minutes) et vous fait découvrir **une seule notion**.
 
-Rendez-vous sur **https://www.pythonanywhere.com/** et créez vous un compte.  
-  
----------------------------------------------------------------------------------------------
-🧩 Séquence 3 : Les Actions GitHUB (Industrialisation Continue)
----------------------------------------------------------------------------------------------
-Objectif : Automatiser la mise à jour de votre hébergement Pythonanywhere  
-Difficulté : Moyenne (~15 minutes)
----------------------------------------------------------------------------------------------
-Dans le Repository GitHUB que vous venez de créer précédemment lors de la séquence 1, vous avez un fichier intitulé deploy-pythonanywhere.yml et qui est déposé dans le répertoire .github/workflows. Ce fichier a pour objectif d'automatiser le déploiement de votre code sur votre site Pythonanywhere. Pour information, c'est ce que l'on appel des Actions GitHUB. Ce sont des scripts qui s'exécutent automatiquement lors de chaque Commit dans votre projet (C'est à dire à chaque modification de votre code). Ces scripts (appelés actions) sont au format yml qui est un format structuré proche de celui d'XML.  
+**Prérequis :** aucun ! Savoir lire quelques lignes de Python aide, mais tout est expliqué.
+**Ce qu'il vous faut :** un navigateur (Chrome, Firefox ou Edge), un compte GitHub et une adresse e-mail.
 
-Pour utiliser cette Action (deploy-pythonanywhere.yml), **vous avez besoin de créer des secrets dans GitHUB** afin de ne pas divulguer des informations sensibles aux internautes de passage dans votre Repository comme vos login et password par exemple.  
+---
 
-Pour cet atelier, **vous avez 4 secrets à créer** dans votre Repository GitHUB : **Settings → Secrets and variables → Actions → New repository secret**  
-  
-**PA_USERNAME** = votre username PythonAnywhere.  
-**PA_TOKEN** = votre API token. Token à créer dans pythonanywhere (Acount → API Token).  
-**PA_TARGET_DIR** = Web → Source code (ex: /home/monuser/myapp).  
-**PA_WEBAPP_DOMAIN** = votre site (ex: monuser.pythonanywhere.com).  
-  
-**Dernière étape :** Pour engager l'automatisation de votre première Action, vous devez cliquer sur le gros boutton vert dans l'onglet supérieur [Actions] dans votre Repository Github. Le boutton s'intitule "I understand my workflows, go ahead and enable them"   
+## 🗺️ Comment ça marche ?
 
-Notions acquises de cette séquence :  
-Vous avez vu dans cette séquence comment créer des secrets GiHUB afin de mettre en place de l'industrialisation continue.   
+Vous allez travailler avec trois outils :
 
----------------------------------------------------
-🗺️ Séquence 4 : Mise en service
----------------------------------------------------
-Objectif : ...  
-Difficulté : Faible (~10 minutes)
----------------------------------------------------
-   
+| Outil | Son rôle | Analogie |
+|---|---|---|
+| **GitHub** | Stocker votre code et garder l'historique de vos modifications | Votre classeur de travail |
+| **GitHub Actions** | Envoyer automatiquement votre code sur le serveur à chaque modification | Le livreur |
+| **PythonAnywhere** | Le serveur qui héberge votre site et le rend accessible à tout le monde | La boutique ouverte au public |
 
----------------------------------------------------
-🔹 Séquence 5 : Exercices
----------------------------------------------------
-Objectif : Travailler..  
-Difficulté : Moyenne (~60 minutes)
----------------------------------------------------
-**Exercice 1 : Création d'une nouvelle fonctionnalité**    
-Créer une nouvelle route dans votre application afin de faire une recherche sur la base du nom d'un client.  
-Cette fonctionnalité sera accéssible via la route suivante : **/fiche_nom/**  
+```mermaid
+flowchart LR
+    A["👩‍💻 Vous<br/>modifiez le code<br/>sur GitHub"] -->|commit| B["⚙️ GitHub Actions<br/>livre le code"]
+    B -->|déploiement| C["🖥️ PythonAnywhere<br/>(le serveur)"]
+    D["🌐 N'importe quel navigateur<br/>dans le monde"] -->|"requête : « donne-moi la page / »"| C
+    C -->|"réponse : la page HTML"| D
+```
 
-**Exercice 2 : Protection**  
-Cette nouvelle route "/fiche_nom/" est soumise à un contrôle d'accès User. C'est à dire différent des login et mot de passe administrateur.  
-Pour accéder à cette fonctionnalité, l'utilisateur sera authentifié sous les login et mot de passe suivant : **user/12345**
-  
----------------------------------------------------
-🔹 Séquence 6 : Atelier
----------------------------------------------------
-Objectif : Créer une application de biliothèque  
-Difficulté : Moyenne (~180 minutes)
----------------------------------------------------
-...  
+**La boucle de travail** que vous répéterez à chaque exercice :
 
---------------------------------------------------------------------
-🧠 Troubleshooting :
----------------------------------------------------
-Objectif : Visualiser ses logs et découvrir ses erreurs
----------------------------------------------------
-Lors de vos développements, vous serez peut-être confronté à des erreurs systèmes car vous avez faits des erreurs de syntaxes dans votre code, faits de mauvaises déclarations de fonctions, appelez des modules inexistants, mal renseigner vos secrets, etc…  
-Les causes d'erreurs sont quasi illimitées. **Vous devez donc vous tourner vers les logs de votre système pour comprendre d'où vient le problème** :  
+1. ✏️ Vous modifiez un fichier **directement sur le site de GitHub** (icône crayon ✏️), puis vous cliquez sur **Commit changes**.
+2. ⏳ Vous patientez ~30 secondes : l'onglet **Actions** de votre dépôt affiche une pastille jaune 🟡, puis verte ✅.
+3. 🔄 Vous rechargez votre site dans le navigateur : votre modification est en ligne !
 
-Vos log sont accéssible via les URL suivantes :  
-* Access log : {site}.pythonanywhere.com.access.log
-* Error log : {site}.pythonanywhere.com.error.log
-* Server log: {site}.pythonanywhere.com.server.log
+---
+
+## 🧩 Séquence 1 : Créer votre dépôt GitHub
+
+**Objectif :** obtenir votre propre copie de l'atelier
+**Difficulté :** très facile (~10 minutes)
+
+1. Si vous n'en avez pas encore, créez un compte sur **https://github.com**.
+2. En haut de cette page, cliquez sur le bouton vert **Use this template** → **Create a new repository**.
+3. Donnez un nom à votre dépôt (par exemple `mon-premier-site`), laissez-le en **Public**, puis cliquez sur **Create repository**.
+
+Vous avez maintenant **votre propre dépôt**, indépendant de celui de l'enseignant. C'est lui que vous modifierez pendant tout l'atelier.
+
+> ⚠️ Dans l'onglet **Actions** de votre nouveau dépôt, vous verrez peut-être déjà une croix rouge ❌. **C'est normal !** Le robot a essayé de déployer votre site, mais il ne sait pas encore où l'envoyer. On règle ça dans la séquence 3.
+
+---
+
+## 🧩 Séquence 2 : Créer votre site chez PythonAnywhere
+
+**Objectif :** obtenir un serveur gratuit, accessible depuis Internet
+**Difficulté :** facile (~10 minutes)
+
+1. Rendez-vous sur **https://www.pythonanywhere.com** et créez un compte gratuit (**Pricing & signup** → **Create a Beginner account**).
+   👉 Notez bien votre **nom d'utilisateur** (*username*), vous en aurez besoin.
+2. Une fois connecté, ouvrez l'onglet **Web** (en haut à droite) puis cliquez sur **Add a new web app**.
+3. Suivez l'assistant :
+   - **Next** (le nom de domaine proposé est `votre-username.pythonanywhere.com`)
+   - Choisissez le framework **Flask**
+   - Choisissez la version de Python la plus récente
+   - Laissez le chemin proposé tel quel : `/home/votre-username/mysite/flask_app.py` → **Next**
+4. Cliquez sur le lien de votre site (`https://votre-username.pythonanywhere.com`) : vous devez voir *« Hello from Flask! »*. 🎉
+   Votre serveur fonctionne ! Pour l'instant il affiche un code d'exemple, pas encore le vôtre.
+5. Dernière chose : créez un **jeton d'API** (une sorte de mot de passe pour le robot de GitHub) :
+   menu **Account** → onglet **API Token** → **Create a new API token**. Gardez cette page ouverte.
+
+---
+
+## 🧩 Séquence 3 : Relier GitHub et PythonAnywhere (les secrets)
+
+**Objectif :** permettre à GitHub de livrer automatiquement votre code sur PythonAnywhere
+**Difficulté :** moyenne (~15 minutes)
+
+Dans votre dépôt se trouve un fichier `.github/workflows/deploy-pythonanywhere.yml`. C'est une **GitHub Action** : un petit programme qui s'exécute **automatiquement à chaque modification** (*commit*) de votre code, et qui envoie vos fichiers sur PythonAnywhere. On appelle ça du **déploiement continu**.
+
+Pour fonctionner, ce robot a besoin de votre nom d'utilisateur et de votre jeton d'API. Mais votre dépôt est **public** : il ne faut surtout pas écrire ces informations dans le code ! On les range donc dans des **secrets**, qui restent invisibles pour les visiteurs.
+
+Dans votre dépôt GitHub : **Settings → Secrets and variables → Actions → New repository secret**, puis créez ces **4 secrets** (attention aux majuscules) :
+
+| Nom du secret | Valeur | Exemple |
+|---|---|---|
+| `PA_USERNAME` | votre nom d'utilisateur PythonAnywhere | `alice42` |
+| `PA_TOKEN` | votre jeton d'API (séquence 2, étape 5) | `3f9a...` |
+| `PA_TARGET_DIR` | le dossier de votre site (onglet **Web** → *Source code*) | `/home/alice42/mysite` |
+| `PA_WEBAPP_DOMAIN` | l'adresse de votre site, **sans** `https://` | `alice42.pythonanywhere.com` |
+
+> 🇪🇺 Si votre compte PythonAnywhere a été créé sur le site européen (`eu.pythonanywhere.com`), ajoutez un 5ᵉ secret : `PA_HOST` = `eu.pythonanywhere.com`.
+
+**Lancer le premier déploiement :** onglet **Actions** de votre dépôt → cliquez sur **Deploy to PythonAnywhere** dans la liste de gauche → bouton **Run workflow** → **Run workflow**.
+
+✅ **C'est réussi si** la pastille devient verte et que votre site affiche maintenant *« Bonjour le monde ! (Flask on PythonAnywhere) »*.
+❌ **Croix rouge ?** Cliquez dessus pour lire le message d'erreur : il vous indique souvent quel secret est manquant ou mal écrit. Voir aussi la section 🧠 Dépannage en bas de page.
+
+---
+
+## 🧩 Séquence 4 : Les exercices
+
+**Objectif :** découvrir le fonctionnement du Web, une notion à la fois
+**Difficulté :** progressive (~3 heures au total)
+
+Faites les exercices **dans l'ordre** : chacun s'appuie sur le précédent. Chaque exercice contient :
+- 🎯 ce que vous allez découvrir,
+- 🛠️ ce qu'il faut faire,
+- 👀 ce qu'il faut observer,
+- 📝 des questions auxquelles répondre dans le fichier [`CARNET.md`](CARNET.md) de votre dépôt.
+
+| # | Exercice | Notion découverte | Durée |
+|---|---|---|---|
+| | **🟢 Niveau 1 — Publier** | | |
+| 1 | [Mon premier déploiement](exercices/01-premier-deploiement.md) | Code → serveur → navigateur | 10 min |
+| 2 | [Les URL et les routes](exercices/02-urls-et-routes.md) | Une adresse = une page | 15 min |
+| | **🔵 Niveau 2 — Afficher** | | |
+| 3 | [Le langage HTML](exercices/03-html.md) | Le navigateur interprète du texte | 15 min |
+| 4 | [Les templates](exercices/04-templates.md) | Séparer le code et la présentation | 15 min |
+| 5 | [Le CSS et les liens](exercices/05-css-et-liens.md) | Mise en forme et navigation | 20 min |
+| | **🟣 Niveau 3 — Échanger** | | |
+| 6 | [Espionner le navigateur](exercices/06-outils-developpement.md) | Requêtes et réponses HTTP | 15 min |
+| 7 | [Envoyer des informations dans l'URL](exercices/07-parametres-url.md) | Paramètres d'URL | 15 min |
+| 8 | [Les formulaires](exercices/08-formulaires.md) | GET et POST | 20 min |
+| | **🔴 Niveau 4 — Dans les coulisses** | | |
+| 9 | [Les codes de statut](exercices/09-codes-de-statut.md) | 200, 302, 403, 404… | 15 min |
+| 10 | [Ce que le serveur sait de vous](exercices/10-ce-que-le-serveur-sait.md) | En-têtes HTTP et journaux | 15 min |
+| 11 | [Le Web des machines](exercices/11-api-json.md) | API, JSON et JavaScript | 20 min |
+
+> 💡 **Astuce :** pour modifier un fichier sur GitHub, ouvrez-le puis cliquez sur le crayon ✏️. Pour **créer** un fichier (même dans un nouveau dossier), utilisez **Add file → Create new file** et tapez par exemple `templates/accueil.html` : le `/` crée le dossier automatiquement.
+
+---
+
+## 🧠 Dépannage
+
+Vous allez faire des erreurs : **c'est normal, et c'est comme ça qu'on apprend !** Une faute de frappe, une parenthèse oubliée, une mauvaise indentation… et le site affiche une erreur.
+
+**1. Le robot GitHub a une croix rouge ❌**
+Onglet **Actions** → cliquez sur l'exécution en rouge → lisez le message. Le plus souvent : un secret manquant ou mal recopié.
+
+**2. Le site affiche « Something went wrong » ou une erreur 500**
+Votre code Python contient probablement une erreur. Allez lire les **journaux** (*logs*) de votre serveur : sur PythonAnywhere, onglet **Web** → section **Log files** :
+
+| Journal | Ce qu'il contient |
+|---|---|
+| **Error log** (`votre-username.pythonanywhere.com.error.log`) | Les erreurs Python. **Lisez la fin du fichier** : la dernière ligne indique l'erreur, et quelques lignes au-dessus le numéro de ligne fautif. |
+| **Access log** (`votre-username.pythonanywhere.com.access.log`) | Toutes les visites reçues par votre site |
+| **Server log** (`votre-username.pythonanywhere.com.server.log`) | Les démarrages et arrêts du serveur |
+
+**3. Ma modification n'apparaît pas**
+- La pastille de l'onglet **Actions** est-elle bien verte ?
+- Forcez le rechargement de la page : **Ctrl + F5** (ou **Cmd + Shift + R** sur Mac). Le navigateur garde parfois une ancienne version en mémoire (le *cache*), surtout pour les fichiers CSS.
+
+**4. Mon site a disparu au bout de quelques semaines**
+Les comptes gratuits PythonAnywhere doivent être réactivés régulièrement : onglet **Web** → bouton **Run until 3 months from today**.
+
+**Erreurs Python fréquentes :**
+
+| Message | Cause probable |
+|---|---|
+| `IndentationError` | Les espaces en début de ligne ne sont pas alignés |
+| `SyntaxError` | Une parenthèse, un guillemet ou deux-points `:` oublié |
+| `NameError: name 'xxx' is not defined` | Une faute de frappe, ou un `import` oublié |
+| `TemplateNotFound` | Le fichier HTML n'est pas dans le dossier `templates/` ou son nom est mal écrit |
+| `AssertionError: View function mapping is overwriting...` | Deux fonctions portent le même nom dans `flask_app.py` |
