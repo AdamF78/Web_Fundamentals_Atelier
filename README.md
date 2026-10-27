@@ -6,7 +6,7 @@ Chaque jour, vous tapez des adresses dans un navigateur et des pages s'affichent
 
 Dans cet atelier, vous allez **mettre en ligne votre propre petit site Web** puis le faire évoluer, pas à pas, pour découvrir comment fonctionne le Web : les URL, le HTML, le CSS, les requêtes HTTP, les formulaires, les codes d'erreur, les API…
 
-> 🎯 **L'objectif n'est pas de construire une application**, mais de **comprendre** ce qui se passe derrière une page Web. Chaque exercice est court (10 à 20 minutes) et vous fait découvrir **une seule notion**.
+> 🎯 **L'objectif n'est pas de construire une application**, mais de **comprendre** ce qui se passe derrière une page Web. Chaque exercice est court (10 à 20 minutes) et vous fait découvrir **une seule notion**. 
 
 **Prérequis :** aucun ! Savoir lire quelques lignes de Python aide, mais tout est expliqué.
 **Ce qu'il vous faut :** un navigateur (Chrome, Firefox ou Edge), un compte GitHub et une adresse e-mail.
